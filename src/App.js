@@ -36,11 +36,11 @@ const App = () => {
               type="text"
               value={locations}
               onChange={(e) => setLocations(e.target.value)}
-              placeholder="위치를 입력하세요"
+              placeholder="Enter a City"
               className="location_input"
             />
             <button className="searcher" onClick={ifClicked}>
-              검색
+              Submit
             </button>
           </div>
           <div className="appdata">
