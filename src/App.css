@@ -8,6 +8,7 @@
 }
 
 .wrapper {
+  text-align: center;
   height: 100%;
   border-radius: 30px;
   overflow: hidden;
@@ -17,34 +18,40 @@
 }
 
 .searcher {
+  display: inline-block;
+  vertical-align: middle;
   padding: 8px;
   color: white;
-  background-color: #333;
+  background-color: black;
   border: none;
   border-radius: 5px;
   margin-left: 5px;
 }
 
+.searcher:hover {
+  cursor: pointer;
+}
+
+
 .location_input {
-  padding: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  color: #333;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  color: black;
   border-radius: 5px;
 }
 
-.city, .desc {
-  text-align: center;
-}
-
-.icon {
-  text-align: center;
+.city {
+  font-size: 2rem;
+  margin: 2rem 0 1rem 0;
 }
 
 .wIcon {
-  font-size: 10rem;
+  display: inline-block;
+  margin: 10px;
 }
 
 .temp, .humid {
-  margin: 5px;
-  text-align: center;
+  margin: 10px;
 }

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import { WiSleet } from "react-icons/wi";
+import Icon from "./Icon";
 
-function App() {
+const App = () => {
   const [weather, setWeather] = useState({});
-  const [locations, setLocations] = useState("daegu");
+  const [locations, setLocations] = useState("Daegu");
   useEffect(() => {
     ifClicked();
   }, []);
@@ -13,7 +13,6 @@ function App() {
     `)
     .then((res) => {
       if (res.ok) {
-        console.log(res.status);
         return res.json();
       } else {
       if (res.status === 404) {
@@ -45,10 +44,22 @@ function App() {
             </button>
           </div>
           <div className="appdata">
-            <p className="city">{weather?.name}</p>
-            <p className="icon"><WiSleet className="wIcon"/></p>
-            <p className="temp">{Math.floor(weather?.main?.temp-273.15)}℃</p>
-            <p className="humid">{weather?.main?.humidity}%</p>
+            <div className="city">{weather?.name}</div>
+            <div className="desc">{weather &&
+                          weather.weather &&
+                          weather.weather[0] &&
+                          weather.weather[0].description}
+            </div>
+            <Icon weather={weather &&
+                          weather.weather &&
+                          weather.weather[0] &&
+                          weather.weather[0].icon}
+                  className="wIcon"
+            />
+            <div className="info">
+            <span className="temp">{Math.floor(weather?.main?.temp-273.15)}℃</span>/
+            <span className="humid">{weather?.main?.humidity}%</span>
+            </div>
           </div>
         </div>
       </div>
