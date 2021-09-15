@@ -9,9 +9,21 @@ const App = () => {
   useEffect(() => {
     ifClicked();
   }, []);
+  const handleErrors = (res) => {
+    if (!res.ok) {
+      alert("Not found");
+      throw new Error("Error");
+    }
+    if (res.status === 404) {
+      alert("Not found");
+    }
+    return res.json();
+  }
   const ifClicked = () => {
     fetch(`http://api.openweathermap.org/data/2.5/weather?q=${locations}&appid=90eae8f9c6fd233fd7bf46493412100e
     `)
+    .then(handleErrors)
+    /*
     .then((res) => {
       if (res.ok) {
         return res.json();
@@ -23,12 +35,18 @@ const App = () => {
       throw new Error("Error");
       }
     })
+    */
     .then((object) => {
       setWeather(object);
       console.log(weather);
     })
     .catch((error) => console.log(error));
     setLocations('');
+  }
+  const onEnter = (e) => {
+    if (e.key == 'Enter'){
+      ifClicked();
+    }
   }
   return (
     <div className="app">
@@ -40,6 +58,7 @@ const App = () => {
               onChange={(e) => setLocations(e.target.value)}
               placeholder="도시를 입력하세요(영문)"
               className="location_input"
+              onKeyPress = {onEnter}
             />
             <button className="searcher" onClick={ifClicked}>
               확인
