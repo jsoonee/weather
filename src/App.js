@@ -44,7 +44,7 @@ const App = () => {
     setLocations('');
   }
   const onEnter = (e) => {
-    if (e.key == 'Enter'){
+    if (e.key === 'Enter'){
       ifClicked();
     }
   }

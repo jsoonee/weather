@@ -8,12 +8,9 @@ const Desc = (props) => {
             (function() {
                 if (Math.floor(id / 100) === 2) return ("뇌우");
                 if (Math.floor(id / 100) === 3) return ("이슬비");
-                if (Math.floor(id / 100) === 5) return ("비");
+                if (id >= 500 && id <= 504) return ("비");
                 if (id === 511) return ("눈");
-                if (id === 520) return ("소나기");
-                if (id === 521) return ("소나기");
-                if (id === 522) return ("소나기");
-                if (id === 531) return ("소나기");
+                if (id >= 520 && id <= 531 ) return ("소나기");
                 if (Math.floor(id / 100) === 6) return ("눈");
                 if (id === 701) return ("박무");
                 if (id === 711) return ("연기");
