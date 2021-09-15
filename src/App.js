@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import Icon from "./Icon";
+import Desc from "./Desc";
 
 const App = () => {
   const [weather, setWeather] = useState({});
@@ -27,6 +28,7 @@ const App = () => {
       console.log(weather);
     })
     .catch((error) => console.log(error));
+    setLocations('');
   }
   return (
     <div className="app">
@@ -36,20 +38,20 @@ const App = () => {
               type="text"
               value={locations}
               onChange={(e) => setLocations(e.target.value)}
-              placeholder="Enter a City"
+              placeholder="도시를 입력하세요(영문)"
               className="location_input"
             />
             <button className="searcher" onClick={ifClicked}>
-              Submit
+              확인
             </button>
           </div>
           <div className="appdata">
             <div className="city">{weather?.name}</div>
-            <div className="desc">{weather &&
+            <Desc name={weather &&
                           weather.weather &&
                           weather.weather[0] &&
-                          weather.weather[0].description}
-            </div>
+                          weather.weather[0].id}
+            className="desc"/>
             <Icon weather={weather &&
                           weather.weather &&
                           weather.weather[0] &&

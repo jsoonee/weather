@@ -19,12 +19,11 @@ import { WiNightFog } from "react-icons/wi";
 
 const iconStyle = {
     fontSize: "10rem",
-    margin: "10px",
+    padding: "30px 0 10px 0",
 };
 
 const Icon = (props) => {
     const code = props.weather;
-    console.log(code);
     return (
         <div>
           {
